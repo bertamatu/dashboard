@@ -2,6 +2,25 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
+import { NavBar, Footer, Sidebar, Theme } from './components';
+import {
+  Ecommerce,
+  Orders,
+  Employees,
+  Customers,
+  Board,
+  Editor,
+  Calendar,
+  ColorPicker,
+  Line,
+  Area,
+  Bar,
+  Pie,
+  Financial,
+  ColorMapping,
+  Pyramid,
+  Stacked,
+} from './pages';
 import './App.css';
 
 const App = () => {
@@ -23,7 +42,7 @@ const App = () => {
           </aside>
           {activeMenu && (
             <section className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
-              Sidebar
+              <Sidebar />
             </section>
           )}
           <nav
@@ -37,26 +56,23 @@ const App = () => {
           </nav>
           <section>
             <Routes>
-              <Route path="/" element="ECommerce" />
-              <Route path="/ecommerce" element="ECommerce" />
-              <Route path="/orders" element="Orders" />
-              <Route path="/employees" element="Employees" />
-              <Route path="/customers" element="Customers" />
-              <Route path="/kanban-board" element="Kanban board" />
-              <Route path="/editor" element="Editor" />
-              <Route path="/calendar" element="Calendar" />
-              <Route path="/color-picker" element="Color picker" />
-              <Route path="/line-chart" element="line-chart" />
-              <Route path="/area-chart" element="area-chart" />
-              <Route path="/bar-chart" element="bar-chart" />
-              <Route path="/pie-chart" element="pie-chart" />
-              <Route path="/financial-chart" element="financial-chart" />
-              <Route
-                path="/color-mapping-chart"
-                element="color-mapping-chart"
-              />
-              <Route path="/pyramid-chart" element="pyramid-chart" />
-              <Route path="/stacked-chart" element="stacked-chart" />
+              <Route path="/" element={<Ecommerce />} />
+              <Route path="/ecommerce" element={<Ecommerce />} />
+              <Route path="/orders" element={<Orders />} />
+              <Route path="/employees" element={<Employees />} />
+              <Route path="/customers" element={<Customers />} />
+              <Route path="/kanban-board" element={<Board />} />
+              <Route path="/editor" element={<Editor />} />
+              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/color-picker" element={<ColorPicker />} />
+              <Route path="/line-chart" element={<Line />} />
+              <Route path="/area-chart" element={<Area />} />
+              <Route path="/bar-chart" element={<Bar />} />
+              <Route path="/pie-chart" element={<Pie />} />
+              <Route path="/financial-chart" element={<Financial />} />
+              <Route path="/color-mapping-chart" element={<ColorMapping />} />
+              <Route path="/pyramid-chart" element={<Pyramid />} />
+              <Route path="/stacked-chart" element={<Stacked />} />
             </Routes>
           </section>
         </section>
