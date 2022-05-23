@@ -1,10 +1,68 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { FiSettings } from 'react-icons/fi';
+import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import './App.css';
 
 const App = () => {
+  const activeMenu = true;
   return (
-    <h1 className='underline text-3xl'>App</h1>
-  )
-}
+    <main>
+      <BrowserRouter>
+        <section className="flex relative dark:bg-main-dark-bg">
+          <aside className="fixed right-4 bottom-4" style={{ zIndex: '1' }}>
+            <TooltipComponent content="Settings" position="top">
+              <button
+                type="button"
+                className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
+                style={{ backgroundColor: 'red', borderRadius: '50%' }}
+              >
+                <FiSettings />
+              </button>
+            </TooltipComponent>
+          </aside>
+          {activeMenu && (
+            <section className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
+              Sidebar
+            </section>
+          )}
+          <nav
+            className={`dark:bg-main-bg bg-main-bg min-h-screen ${
+              activeMenu ? 'w-full' : 'w-72'
+            }}`}
+          >
+            <section className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
+              NavBar
+            </section>
+          </nav>
+          <section>
+            <Routes>
+              <Route path="/" element="ECommerce" />
+              <Route path="/ecommerce" element="ECommerce" />
+              <Route path="/orders" element="Orders" />
+              <Route path="/employees" element="Employees" />
+              <Route path="/customers" element="Customers" />
+              <Route path="/kanban-board" element="Kanban board" />
+              <Route path="/editor" element="Editor" />
+              <Route path="/calendar" element="Calendar" />
+              <Route path="/color-picker" element="Color picker" />
+              <Route path="/line-chart" element="line-chart" />
+              <Route path="/area-chart" element="area-chart" />
+              <Route path="/bar-chart" element="bar-chart" />
+              <Route path="/pie-chart" element="pie-chart" />
+              <Route path="/financial-chart" element="financial-chart" />
+              <Route
+                path="/color-mapping-chart"
+                element="color-mapping-chart"
+              />
+              <Route path="/pyramid-chart" element="pyramid-chart" />
+              <Route path="/stacked-chart" element="stacked-chart" />
+            </Routes>
+          </section>
+        </section>
+      </BrowserRouter>
+    </main>
+  );
+};
 
-export default App
+export default App;
